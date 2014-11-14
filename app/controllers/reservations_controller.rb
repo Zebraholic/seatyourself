@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
 
+before_filter :load_restaurant
+
 def index
 		@reservations = Reservation.all
 	end
@@ -14,16 +16,18 @@ def index
 
 	def edit
 		@reservation = Reservation.find(params[:id])
-	endreservation
+	end
 
 	def create
-		@reservation = Reservation.new(reservation_params)
 
-		if @reservation.save
-			redirect_to reservations_path
-		else
-			render :new
-		end
+		@reservation = @restaurant.reservations.build(reservation_params)
+	
+			if @reservation.save
+				redirect_to restaurants_path, notice: 'Reservation booked successfully'
+			else
+				render 'restaurants/show'
+			end
+
 	end
 
 	def update
@@ -47,7 +51,9 @@ def index
 		params.require(:reservation).permit(:restaurant_id, :customer_id, :size, :time)
 	end
 
+  	def load_restaurant
+  		@restaurant = Restaurant.find(params[:restaurant_id])
+  	end
+
 end
 
-
-end

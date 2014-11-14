@@ -4,4 +4,12 @@ has_many :reservations
 has_many :reviews
 
 validates :name, :email, :phone, :location, :time_open, :time_closed, :food_type, :capacity, presence: true
+
+	def available?(size, time)
+		reserved = reservations.where(:time => time).sum(:size)
+		size <= (capacity-reserved)
+	end
+
+
+
 end
