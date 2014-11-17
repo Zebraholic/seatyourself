@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
-has_many :customers, through: :reservations
-has_many :reservations
-has_many :reviews
+	has_many :customers, through: :reservations
+	has_many :reservations
+	has_many :reviews
 
 validates :name, :email, :phone, :location, :food_type, :capacity, presence: true
 

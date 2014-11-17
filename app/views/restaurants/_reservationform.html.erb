@@ -1,4 +1,4 @@
-<h1>Book a New Reservation</h1>
+<h2>Book a New Reservation</h2>
 
 <%= form_for([@restaurant, @reservation]) do |f| %>
 
@@ -7,7 +7,7 @@
     <%= f.datetime_select :time %>
   </div>
   <div class="field">
-    <%= f.label :size %><br />
+    <%= f.label :Partysize %><br />
     <%= f.number_field :size %>
   </div>
   <div class="actions">
@@ -18,7 +18,7 @@
 
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2> Your Reservation could not be completed because:</h2>
 
       <ul>
       <% @reservation.errors.full_messages.each do |msg| %>
@@ -28,5 +28,5 @@
     </div>
     <% end %>
 
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Back to Listing of Restaurants', restaurants_path %>
 

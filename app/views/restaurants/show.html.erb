@@ -1,3 +1,15 @@
-<%= @restaurant.name %>, <%= @restaurant.email %>, <%= @restaurant.food_type %>, <%= @restaurant.location %>, <%= @restaurant.capacity %>, <%= @restaurant.price %>
+<div>
+<p> <%= image_tag @restaurant.photo_url %> </p>
+<p> <%= @restaurant.name %> </p>
+<p> Email: <%= @restaurant.email %> </p>
+<p> Cuisine: <%= @restaurant.food_type %> </p>
+<p> Address: <%= @restaurant.location %> </p>
+<p> Number of Seats: <%= @restaurant.capacity %> </p>
+<p> Price Level: <%= @restaurant.price %> </p>
 
-<%= render 'restaurants/reservationform' %>
+<%= link_to "Edit Restaurant Information", edit_restaurant_path(@restaurant) %>
+
+<h2> <%= render 'restaurants/reservationform' %> </h2>
+
+</div>
+

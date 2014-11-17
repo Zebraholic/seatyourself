@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seatyourself</title>
+  <title>SeatYourself</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sansita One">
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header><h1>Seat Yourself</h1></header>
 <%= yield %>
 
+<footer> &copy 2014 Seat Yourself Inc.</footer>
 </body>
 </html>

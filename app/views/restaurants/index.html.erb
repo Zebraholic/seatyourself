@@ -1,5 +1,10 @@
+<h2>Our Featured Restaurants</h2>
+
+
 <% @restaurants.each do |restaurant| %>
-	<div>
-	<%= restaurant.name %>, <%= restaurant.email %>, <%= restaurant.food_type %>, <%= restaurant.location %>, <%= restaurant.capacity %>, <%= restaurant.price %>, 
-	</div>
+<p>
+    <%= link_to image_tag(restaurant.photo_url), "/restaurants/#{restaurant.id}" %>
+
+</P>
+
 <% end %> 
